@@ -9,7 +9,7 @@ const Login = () => {
   const navigation = useNavigation()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   const LoginButton = () => {
     if (email != "admin" && password != "admin") {
@@ -48,18 +48,26 @@ const Login = () => {
         }}>
           <CustomTextInput title="Tên Người Dùng" onChangeText={(txt) => setEmail(txt)} secureTextEntry={false} />
           <CustomTextInput title="Mật Khẩu" onChangeText={(txt) => setPassword(txt)} secureTextEntry={true} />
-          <CustomLoginButton title="Login" onPress={LoginButton}/>
+          <CustomLoginButton title="Login" onPress={LoginButton} />
         </View>
       </View>
       <Modal visible={showModal} transparent={true}>
         <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.7)', justifyContent: 'center', alignItems: 'center' }}>
-          <View style={{ backgroundColor: 'white', width: 300, height: 200, borderRadius: 12 }}>
+          <View style={{
+            backgroundColor: 'white',
+            width: 300,
+            borderRadius: 12,
+            padding: 20,
+            alignItems: 'center',
+          }}>
             <Text style={{
               marginBottom: 20,
               textAlign: 'center',
               fontSize: 16,
             }}>Bạn đã nhập sai vui lòng nhập lại</Text>
-            <Button style={{ paddingHorizontal: 23 }} onPress={() => setShowModal(false)} title='Tắt' color="#FF6347" />
+            <View style={{ width: '100%' }}>
+              <Button style={{ paddingHorizontal: 23, borderRadius: 30 }} onPress={() => setShowModal(false)} title='Tắt' color="#FF6347" />
+            </View>
           </View>
         </View>
       </Modal>

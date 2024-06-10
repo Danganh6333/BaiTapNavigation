@@ -9,6 +9,7 @@ import Welcome from './Screens/Welcome'
 import Login from './Screens/Login'
 import { createStackNavigator } from '@react-navigation/stack'
 import CustomDrawerContent from './Components/CustomDrawerContent'
+import AddProduct from './Screens/AddProduct'
 
 const App = () => {
   const Stack = createStackNavigator()
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Drawer" component={CustomDrawer} options={{ headerShown: false }} />
+        <Stack.Screen name="AddProduct" component={AddProduct} />
       </Stack.Navigator>
     </NavigationContainer>
   )
